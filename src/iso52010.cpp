@@ -179,7 +179,6 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
     double theta_z = PI/2 - alfa;
     
     // fai, solar azimuth angle, not calculted (can be used for shading calc)
-    /*
     // calc once
     double fai_0 = cos(asin(sin(alfa)));
     
@@ -200,7 +199,6 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
     } else {
     fai = -(PI + fai_2);
     }
-    */
     
     // ISO52010:2017 eq 20-21: The air mass, the distance solar beams travel through atmosphere
     // 0.175 ~ 10 degrees
@@ -230,6 +228,7 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
     
     
     I_tot(i, 0) = alfa;
+    I_tot(i, 1) = fai;
     
     for (int s = 0; s < n_surfaces; s++) {
       
@@ -278,8 +277,8 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
       // ISO52010:2017 eq 39: hemispherical or total solar irradiance;
       //double I_tot = I_dif_tot + I_dir_tot;
       
-      I_tot(i, 1 + s) = I_dir_tot;
-      I_tot(i, 1 + n_surfaces + s) = I_dif_tot;
+      I_tot(i, 2 + s) = I_dir_tot;
+      I_tot(i, 2 + n_surfaces + s) = I_dif_tot;
       //I_tot(i, 1 + s) = eps;
       //I_tot(i, 1 + n_surfaces + s) = I_dir_tot + I_dif_tot;
       
