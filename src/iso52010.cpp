@@ -183,7 +183,7 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
     double fai_0 = cos(asin(sin(alfa)));
     
     // ISO52010:2017 eq 13: auxiliary variable
-    double sin_fai_1 = cos_delta * sin(H) / fai_0;
+    double sin_fai_1 = cos_delta * sin(PI-H) / fai_0;
     
     // ISO52010:2017 eq 14: auxiliary variable
     double cos_fai_1 = (cos_lat*sin_delta + sin_lat*cos_delta*cos(PI-H)) / fai_0;
