@@ -189,7 +189,7 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
     double cos_fai_1 = (cos_lat*sin_delta + sin_lat*cos_delta*cos(PI-H)) / fai_0;
     
     // ISO52010:2017 eq 15: auxiliary variable
-    double fai_2 = asin(cos_delta*sin(PI-H)) / fai_0;
+    double fai_2 = asin((cos_delta*sin(PI-H)) / fai_0);
     
     // ISO52010:2017 eq 16: the solar azimuth angle
     if ((sin_fai_1 >= 0.0) & (cos_fai_1 > 0.0)) {
