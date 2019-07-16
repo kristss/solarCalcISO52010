@@ -62,10 +62,11 @@ tidyISO52010 <- function(
   )
   
   .df$alpha_sol <- res[,1]
+  .df$fai <- res[,2]
   N <- length(surfaceAzimuths)
   for (n in 1:N) {
-    .df[ , paste0("I_tot_dir_s", n)] = res[,n+1]
-    .df[ , paste0("I_tot_dif_s", n)] = res[,N+n+1]
+    .df[ , paste0("I_tot_dir_s", n)] = res[,n+2]
+    .df[ , paste0("I_tot_dif_s", n)] = res[,N+n+2]
   }
   .df
 }
