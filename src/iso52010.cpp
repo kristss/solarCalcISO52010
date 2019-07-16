@@ -117,7 +117,7 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
 
   int n = n_hour.size();
   int n_surfaces = surfaceAzimuths.size();
-  NumericMatrix I_tot(n, n_surfaces*2 + 1);
+  NumericMatrix I_tot(n, n_surfaces*2 + 2);
   
   double t_eq;
   double cos_lat = cos(lat);
@@ -128,7 +128,7 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
     
     if ((G_dif[i] + G_dir[i]) < 0.1) {
       for (int j=0; j < n_surfaces*2; j++) 
-        I_tot(i, 1 + j) = 0;
+        I_tot(i, 2 + j) = 0;
       continue; // skip hours with sunshine below threshold
     }
     
