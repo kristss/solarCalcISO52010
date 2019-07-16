@@ -122,7 +122,7 @@ NumericMatrix rcpp_ISO52010(double lat, double lng, double tz, double t_shift,
   double t_eq;
   double cos_lat = cos(lat);
   double sin_lat = sin(lat);
-  //double fai;
+  double fai;
   
   for (int i=0; i < n; i++) {
     
